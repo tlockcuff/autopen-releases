@@ -2,6 +2,74 @@
 
 What changed in each version of Autopen.
 
+## 0.2.2 (2026-10-02)
+
+#### New Features
+
+- Board context notes agents read and update
+- Run board agents as the user's full Claude Code
+- Steer a running agent with messages sent mid-run
+- What's new shows the release notes after an update
+- Delete, search and sort boards on the home screen
+- Phone and web render image assets, fetched from board peers and cached in IndexedDB
+- Code export writes the board's image assets beside the pages
+- Per-board asset folders, peer fetch, migration of http and data: fills, and ingestion for paste, screenshots and the image field
+- .pen import stores relative image files as board assets
+- Store captured page images as assets, large canvas and video frames included
+- Write used image assets beside HTML and React exports
+- Never fetch images at render time; report missing assets and redraw when they arrive
+- Asset exchange: peers fetch missing image bytes in sealed, hash-checked chunks
+- Store images as content-addressed assets: Generate results, data: and http fills, and asset sources
+- Asset urls, image sniffing and an image url walker for fills
+- Undo agent runs in one step, global design guidelines, and an update notice
+- Watch agent browsers live, and close them when their run or session ends
+- PDF pages from each frame's HTML export, with real text and vector shapes
+- Images settings with sealed provider keys
+- Shader fill problems, lint and ShaderUrl
+- Inline relative shader files on .pen import
+- Animate @time and @mouse shader fills
+- Shader fill kind in the properties panel
+- Run shader fills with an inline WebGL runner
+- Shader fills via GLSL ES 1.0 to SkSL translation
+- Pin Date to the epoch in UTC inside scripts
+- Run layout-sized scripts at their laid-out size
+- Import .pen libraries as boards and wire their aliases
+- Generate svg, vectorize-image and background kinds
+- Mesh fills and image crop controls in the properties panel
+- One-shot claude text helper
+- Read hand-written SVG paint in svgToPaths
+- Import boards as component libraries
+- Edit script inputs and source in the properties panel
+- Load the script runtime with CanvasKit on desktop, iOS and web
+- Export image crops and mesh gradient fills
+- Crop image fills and draw mesh gradient fills
+- Export library components like local ones
+- Keep script nodes from .pen files, inlining their source
+- Export script output as absolutely placed nodes
+- Insert, read and diagnose script nodes
+- Script nodes that generate children from JavaScript
+- Insert, read and render library instances
+- Ten marketing-leaning style archetypes
+- Board imports and a component source for shared libraries
+
+#### Improvements
+
+- Asset scan looks only at nodes changed since the last one
+- Execute stages only the touched frame, so agent calls stop stalling the main process
+
+#### Fixes
+
+- An image landing after its board was deleted no longer recreates the board folder
+- Board thumbnails redraw when an image arrives
+- Keep fill type names readable in a narrow panel
+- Allow .pen libraries from sibling folders
+- Keep .pen side-file reads inside the file's folder
+- Fetch board image urls through the SSRF guard
+- Run the background model without ORT's memory arena
+- Load CanvasKit lazily in the shader fields
+- Fetch doc-provided image urls through safeFetchImage
+- Load CanvasKit lazily from the script panel
+
 ## 0.2.1 (2026-10-02)
 
 #### New Features
