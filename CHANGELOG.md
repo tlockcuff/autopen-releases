@@ -2,6 +2,17 @@
 
 What changed in each version of Autopen.
 
+## 0.2.4 (2026-10-02)
+
+#### Improvements
+
+- Quitting no longer waits on the peer swarm
+
+#### Fixes
+
+- The page no longer sticks on screen after leaving a board
+- Gradients fade like the browser's, and translated elements keep exact text
+
 ## 0.2.3 (2026-10-02)
 
 #### Fixes
