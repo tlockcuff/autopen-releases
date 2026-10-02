@@ -2,6 +2,16 @@
 
 What changed in each version of Autopen.
 
+## 0.2.6 (2026-10-02)
+
+#### New Features
+
+- The agent builds designs layer by layer in front of you
+
+#### Fixes
+
+- Agent steps read in plain words instead of showing snippet code
+
 ## 0.2.5 (2026-10-02)
 
 #### New Features
