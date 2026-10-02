@@ -2,6 +2,12 @@
 
 What changed in each version of Autopen.
 
+## 0.2.3 (2026-10-02)
+
+#### Fixes
+
+- Opening a board with a saved viewport no longer crashes the app
+
 ## 0.2.2 (2026-10-02)
 
 #### New Features
