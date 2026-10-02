@@ -2,6 +2,25 @@
 
 What changed in each version of Autopen.
 
+## 0.2.5 (2026-10-02)
+
+#### New Features
+
+- Pasting SVG markup, like Figma's Copy as SVG, makes vector layers
+- Watch the agent design live, like pen.dev
+
+#### Improvements
+
+- Clicks get through while a large board opens
+
+#### Fixes
+
+- A copy of this desktop's data no longer marks the original's live runs stale
+- Agents stay on their board and make new artboards there, not new boards
+- A relay whose DNS hangs no longer stalls fonts and every other lookup
+- Text being edited keeps its place in layout
+- The text editor opens over its text at any interface size
+
 ## 0.2.4 (2026-10-02)
 
 #### Improvements
