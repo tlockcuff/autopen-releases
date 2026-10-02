@@ -4,13 +4,13 @@ A multiplayer design canvas where Claude designs alongside you.
 
 ## Download
 
-Version 0.2.5.
+Version 0.2.6.
 
 | | |
 |---|---|
-| **Mac** with Apple silicon (M1 and later) | [Autopen-0.2.5-arm64.dmg](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.5/Autopen-0.2.5-arm64.dmg) |
-| **Mac** with an Intel processor | [Autopen-0.2.5-x64.dmg](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.5/Autopen-0.2.5-x64.dmg) |
-| **Windows** 10 and 11 | [Autopen-0.2.5-setup.exe](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.5/Autopen-0.2.5-setup.exe) |
+| **Mac** with Apple silicon (M1 and later) | [Autopen-0.2.6-arm64.dmg](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.6/Autopen-0.2.6-arm64.dmg) |
+| **Mac** with an Intel processor | [Autopen-0.2.6-x64.dmg](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.6/Autopen-0.2.6-x64.dmg) |
+| **Windows** 10 and 11 | [Autopen-0.2.6-setup.exe](https://github.com/tlockcuff/autopen-releases/releases/download/v0.2.6/Autopen-0.2.6-setup.exe) |
 
 On a Mac, open the DMG and drag Autopen to Applications. On Windows, run the installer; it installs for your account only and needs no administrator rights.
 
