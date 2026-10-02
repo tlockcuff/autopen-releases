@@ -2,6 +2,25 @@
 
 What changed in each version of Autopen.
 
+## 0.2.7 (2026-10-02)
+
+#### New Features
+
+- Ask for a quick change on any layer, and watch the agents working in the corner
+- Agents organize a board in one step with Arrange
+- Brandfetch lookups survive restarts
+- Brandfetch lookups can be kept in a store across restarts
+- OpenAI and Gemini keys move to Integrations and are checked before saving
+- Integrations in Settings, with Unsplash moved there and Brandfetch added
+- Agents on this desktop can use the Brandfetch key
+- Get_brand tool and docs for putting real brands in designs
+- Generate("logo", nodeId, domain) puts a real brand's logo on the board
+- Brandfetch client for real brand logos, colors and fonts
+
+#### Fixes
+
+- Agents put things where your selection points
+
 ## 0.2.6 (2026-10-02)
 
 #### New Features
