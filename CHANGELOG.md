@@ -2,6 +2,24 @@
 
 What changed in each version of Autopen.
 
+## 0.2.12 (2026-10-05)
+
+#### New Features
+
+- The agent pane header names the agent you're talking to, with one pill for who needs you; Cmd+K lists every agent, Cmd+1 to 9 jump to one, right-click deletes, and the prompt takes pasted, dropped or picked images and files
+- View > Toggle Sidebars and Toolbar (Cmd+\) hides both side panels and the tool bar for a clear canvas
+- Zooming is gentler: buttons and shortcuts step 10% and pinch or Cmd+scroll moves in smaller increments
+- The agent prompt, quick ask and notes check spelling, with suggestions and Add to Dictionary on right-click
+- Agent names are four letters at most, each with its own initial, so they fit the switcher and badges
+- Agent prompts carry attached images, which Claude sees, and files, which it reads from disk
+- Drop image and SVG files on the canvas to place them where they land; pasting takes WebP and GIF too
+- Agent runs have no turn limit, and the Max turns setting is gone
+- Presentations show a slide's composition full screen, start it once loaded and warmed up, play its soundtrack, and add play, pause and replay; a script measures playback smoothness
+
+#### Fixes
+
+- SVGs keep colors set in <style> rules, so dropped or pasted logos from Illustrator and Figma exports aren't black
+
 ## 0.2.11 (2026-10-05)
 
 #### New Features
