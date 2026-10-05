@@ -2,6 +2,12 @@
 
 What changed in each version of Autopen.
 
+## 0.2.10 (2026-10-05)
+
+#### Fixes
+
+- With a saved viewport, the page view no longer covers the sidebar and canvas before a page loads
+
 ## 0.2.9 (2026-10-05)
 
 #### New Features
