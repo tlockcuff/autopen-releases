@@ -2,6 +2,58 @@
 
 What changed in each version of Autopen.
 
+## 0.2.8 (2026-10-05)
+
+#### New Features
+
+- PDF export splits section frames into a page per diagram, fits pages to Letter or A4, and adds bookmarks and a title
+- Outside MCP clients build live: whole execute calls replay statement by statement, paced, under a cursor named for the client
+- /diagram is the one diagram slash skill; /architecture removed
+- Connect reroutes crossing edges against the finished layout and keeps the route that crosses less; architecture example is an order-to-cash system
+- 43 more diagram type references, from sequence and swimlane to Sankey, Wardley and axonometric plans
+- Connect gains UML end marks, end labels, dashed any style, zone endpoints, per-type budgets and remembered options; sides chosen around obstacles; no fonts pending without a font source
+- Connect draws self-loops, takes arrow end/both/none, and reports when fonts were still loading; harness warms diagram fonts
+- Design-first diagram guide adapted from diagram-design, architecture reference on Connect, /diagram slash skill
+- Connect routes right-angle connectors around nodes and reports broken connector rules; strokeDash for dashed strokes
+- Sub-agent and code-exploration steps roll up into expandable groups with real labels; a typed /skill shows as a link in the composer
+- /architecture slash skill; slash skills name their own docs and instruction
+- Keys you enter can be shared with everyone on a board
+- A new Canvas setting makes the scroll wheel zoom instead of pan
+- Architecture diagram guide with routed, numbered edges between system cards
+- Cmd+N starts a new conversation; New Board moves to Cmd+Alt+N
+- Clicking the version opens the changelog, every release newest first, and it opens offline too
+- Toolbar buttons show a real tooltip with the shortcut
+- Board notes split into shared notes and this device's own, and agent cursors show as soon as a run is queued
+- Draw and edit vector paths with the pen tool, and combine or flatten shapes
+- A pen tool and an overlay for vector anchors and handles
+- Shape outlines for path operations
+- Align and distribute layers from the properties panel
+- One key table for every shortcut, with Figma's flip, frame, auto layout, selection, rename, zoom and Alt measuring
+- Align, distribute, flip and auto layout worked out from layer boxes
+- Polygon and note tools, and red distance lines for measuring
+- A guide for turning a codebase into tokens, components and screens
+- Boards can point at a code folder agents read first
+- Set a frame's theme, and bind number variables to gap, padding, radius and font size
+- Edit light and dark variables in a table, with theme axes you can add and rename
+- A vector path model that reads and writes svg path data
+- Runs open the board's code folder and are told to design from it
+- Boards keep their theme axes, and variables rename and retheme in one step
+
+#### Fixes
+
+- Connect ports snap to the half-pixel grid so end segments stay straight; references use end labels, UML marks, self-loops, zone endpoints and remembered options
+- Only the boards you chose to share a key on get its replacement
+- Agent steps skip templated layer names like ${name} icon instead of showing the code
+- Cmd+C over selected text copies the text, not the layers selected on the canvas
+- Icons sit dead center in small icon buttons
+- The chip's remove button highlights in the chip's own color
+- Dialogs opened from the top bar scroll again, instead of acting as the window's drag handle
+- The selected-layer chip's remove button has the same breathing room as its label
+- The linked code folder sits in the This device notes card
+- The remove button on a selected-layer chip sits inside its rounded end
+- The context menu opens at the pointer at any interface size
+- Text being edited keeps its variable colors and sizes, as the canvas draws it
+
 ## 0.2.7 (2026-10-02)
 
 #### New Features
