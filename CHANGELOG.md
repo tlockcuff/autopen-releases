@@ -2,6 +2,46 @@
 
 What changed in each version of Autopen.
 
+## 0.2.11 (2026-10-05)
+
+#### New Features
+
+- Claude setup can update an old CLI and open a terminal for a manual install
+- Vector paths are sized to their own shape and picked by their outline, so clicks reach what's under empty space in vector art
+- Reopening a board returns to where its camera was left
+- Compositions play their soundtrack on the canvas, following play, pause, scrubbing and loops
+- MP4 exports carry the composition's soundtrack, mixed with fades and volume and encoded to AAC
+- Compositions hold audio clips stored as board assets, from https, data or local file urls
+- TakeScreenshot filmstrip, one labelled grid of a composition's frames to judge pacing
+- Tuned springs, and blur, corner radius, shadow and gradient fills that animate
+- Icons take a stroke outline so they read on any background
+- Show a composition's play bar only while it is selected, playing or fills the view
+- Warn when motion can never show, keep connector lines and their motion through Connect redraws, and guide presets for travel, grow, type, count, pulse and sequencing
+- Motion that follows a path, grows from an origin, types or counts text, repeats tracks, and starts at composition markers or absolute times
+- Motion channels for morphing path shapes (geometry), revealing filled art from an edge (wipe) and marching dashes (dashOffset), with guide presets to draw SVG art piece by piece
+- Video exports show frame-by-frame progress with Cancel, in the dialog or floating over the canvas
+- Follow a person or an agent from their avatar or agent card; the camera tracks their view or cursor until you move it
+- Export dialog groups formats as image, video and code tiles with per-format settings, PNG at 3x, and a summary of what it will write
+- An export button under the selection's sparkle writes just those layers as PNG, PDF, video or code
+- Present opens the board as a slideshow in the browser or copies its presentation link
+- Presentation links show the board as slides, one frame or section card at a time, with keys, fullscreen and auto-playing compositions
+- Presentation links, /p/<board>#<secret>, parsed beside view links
+- /motion skill for Remotion-style slides, videos and GIFs, with presets, timing rules and an animated build for diagrams
+- Play, pause and scrub compositions on the canvas
+- Export writes compositions as MP4 or GIF through the desktop's video encoder
+- Export compositions as H.264 MP4 and GIF, rendered frame by frame and encoded with WebCodecs in a hidden window
+- TakeScreenshot shows compositions at chosen times, and motion or timeline values that can't play come back as warnings
+- Compositions and keyframe motion: frames with a timeline play their children's tracks (offset, scale, rotation, opacity, color, stroke draw-on) at a playhead
+
+#### Fixes
+
+- Local soundtrack files load only as audio from allowed folders (~/Music, ~/Downloads, ~/Desktop by default)
+- DrawArt skips empty fill lists and can sort art into drawing order; guide covers springs, curves and the new channels
+- A composition nested in another plays on the outer clock from its own start, and screenshots or exports of it use its own time
+- Timing warnings fire for calls streamed onto the board, and a scene that fades out counts as ended
+- Only frames of headings and full-size cards split into pages; a screen with its own content, like a dashboard, stays whole
+- UiScale lives in its own module, so importing a dropdown no longer loads the window bridge in tests
+
 ## 0.2.10 (2026-10-05)
 
 #### Fixes
