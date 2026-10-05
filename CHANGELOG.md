@@ -2,6 +2,13 @@
 
 What changed in each version of Autopen.
 
+## 0.2.9 (2026-10-05)
+
+#### New Features
+
+- Right-click text menu with cut, copy, paste and select all for fields and selected text
+- App-styled dropdowns replace native selects; verify scripts drive them with choose and optionLabels
+
 ## 0.2.8 (2026-10-05)
 
 #### New Features
