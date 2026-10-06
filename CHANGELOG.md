@@ -2,6 +2,45 @@
 
 What changed in each version of Autopen.
 
+## 0.2.13 (2026-10-06)
+
+#### New Features
+
+- Home files boards in nested folders, in a Personal tree on this computer and the directory's tree for everyone signed in; Move to…, drag and drop, a breadcrumb, folder search, and delete only when empty
+- The deletion marker is a hint to re-read the list, never the licence to delete
+- The person who shared a board to the directory can delete it for everyone
+- Releases cut themselves: once CI passes on main with a feat, fix or perf since the last tag and main has settled for 15 minutes, auto-release tags the next version and starts the release
+- Importing a Figma file says how far it has got, and what landed
+- Home lists the directory beside Personal boards, and Settings shows the account
+- Windows read the directory, sign in and share through ipc, and hear every change
+- A board directory a fork fills in, which lists an organization's boards behind sign-in
+- APP_ICONS points a build at its own icon set, and scripts/icons.ts --out draws one recolored and named for that app
+- Verify:figma checks the import against Figma's own render
+- File > Import Figma File… opens a .fig as a new board
+- Paste a Figma selection, or drop a .fig file, on the canvas
+- Turn a Figma scene into editable layers
+- Read Figma files and copied Figma selections
+- APP_NAME, APP_ID, APP_SCHEME and APP_MCP_PORT make a separate app that installs and runs beside Autopen, with its own data, keychain entry, invite links, MCP port and updater cache
+- The SKIP_IOS variable leaves the iPhone build out of a release
+- RELAY_URL and VIEW_ORIGIN variables point a build at another relay and browser viewer
+- The releases repository comes from the RELEASES_REPO variable, so a downstream copy publishes and updates from its own
+
+#### Fixes
+
+- A board is republished to the directory only when renamed on this device, so a second device never publishes a joining placeholder or brings back an unshared board
+- A big board opens fitted to what has built so far, instead of at 100% until every image decodes
+- One import note per kind, with how many layers it happened to
+- A Figma file imports every layer, not the first 5,000
+- One board letting go of an image no longer takes it from another
+- A canvas keeps photos at screen size, and gives them back when the board closes
+- A board of big photos no longer takes the canvas down
+- A directory that could not be read says so above its boards
+- Publishing to a releases repository without a CHANGELOG creates one; the README and CHANGELOG carry the app's name, and the README leaves out TestFlight when SKIP_IOS is set
+- Read Figma's order keys by their bytes, and guard untrusted parents
+- A zero-width Figma stroke draws nothing, and one effect per layer
+- Place Figma pages from the boxes Figma measured
+- A paste with html but no text still reads the system clipboard
+
 ## 0.2.12 (2026-10-05)
 
 #### New Features
