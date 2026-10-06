@@ -2,6 +2,16 @@
 
 What changed in each version of Autopen.
 
+## 0.2.15 (2026-10-06)
+
+#### New Features
+
+- A frame an agent grows into its neighbours pushes everything past its old edge aside in the same update, so nothing is ever designed underneath another frame
+
+#### Fixes
+
+- An image whose bytes arrive while its frame is still building draws without a reload
+
 ## 0.2.14 (2026-10-06)
 
 #### New Features
