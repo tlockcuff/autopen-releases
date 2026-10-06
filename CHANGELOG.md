@@ -2,6 +2,20 @@
 
 What changed in each version of Autopen.
 
+## 0.2.14 (2026-10-06)
+
+#### New Features
+
+- Renaming a listed board renames it on the list for everyone, whoever renames it, and Home shows the list's name
+- Opening a board says Opening board…, and a big one says Loading board… until its first draw settles
+- Home opens with Recent, the boards last opened on this computer, as many as fill one row
+
+#### Fixes
+
+- The toolbar sits above a selection's quick actions when they reach the bottom of the canvas
+- The viewer draws a board's Google fonts, served by the relay as the same TTFs the desktop app uses, instead of falling back to Inter
+- A board being joined keeps the name it was listed under and says Joining… with a spinner, instead of being renamed Joining…
+
 ## 0.2.13 (2026-10-06)
 
 #### New Features
