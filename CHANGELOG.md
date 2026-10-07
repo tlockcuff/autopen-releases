@@ -2,6 +2,20 @@
 
 What changed in each version of Autopen.
 
+## 0.2.16 (2026-10-07)
+
+#### New Features
+
+- Home is organized around spaces, pins and a Move popover that says what a move will do
+- Home remembers the rows you pinned to the sidebar and the folders you moved boards into lately
+- A new board can be made straight into a folder, and a board on this computer can be renamed or duplicated
+- A board records which computers have it, so Home can tell when a shared board is still only yours
+- New boards have a home: Drafts sits at the top of the shared list, where it can't be renamed, moved or deleted
+
+#### Fixes
+
+- New board lays its fields out like Settings, the Move popover stays in the window as it grows, and the level you are at is a destination in the folder picker
+
 ## 0.2.15 (2026-10-06)
 
 #### New Features
