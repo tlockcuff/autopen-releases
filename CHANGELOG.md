@@ -2,6 +2,62 @@
 
 What changed in each version of Autopen.
 
+## 0.2.20 (2026-10-29)
+
+#### The usage card says how old its numbers are
+
+- "Updated just now" or "Updated 6m ago" under the limits
+
+#### People away from the board drop off its avatars
+
+- Presence carries an away flag; avatars show others only while the board is their open, focused tab
+
+#### Present always opens its setup
+
+- With nothing selected it opens on Whole board; Selection is disabled until frames are selected
+- Enter plays; Mod+Alt+Enter still plays at once
+
+#### A setup popover for the selection
+
+- order, tall pages, copy link
+
+#### New Features
+
+- One toast system, clear of the canvas toolbar
+- Toasts on the canvas, and rows open their conversation
+- Agents strip, inbox popover and tab dots
+- Main keeps every board's agent runs for this device
+- Settle a conversation from the header, the list and its menu
+- Settled state and folded sub-agents in the thread model
+- Settled conversations, per board in the doc
+- The usage chip shows the 5-hour limit
+- Usage chip and model gauge by Send
+- View can show the frames selected on the canvas
+- Shared links heads its scoped section Frame and layer links
+- Links to selected frames, kept live in their saved slide order
+- A frames scope for links, carrying the saved slide order
+- A slide order saved on the board per set of frames
+- Hide the bar (H) and fit tall pages to the width
+- Present the selected frames
+- Share is Edit and View, with a bar saying what each link needs
+
+#### The app stays smooth while agents bulk edit
+
+- Shadows under an opaque fill draw without a cut-out, so redrawing a page of shadowed cards no longer stalls a frame for 100-200ms
+- Canvas tiles flush as they render, so the per-frame budget counts the GPU work and a big edit repaints over a few frames
+- Agent layout keeps unchanged trees and Yoga nodes between calls, so growing a big frame no longer holds the main process (and every key and click) each edit
+- bench-composer: typing latency, frame pacing and main-process stalls while an agent edits
+
+#### Opening a listed board you haven't joined joins it first
+
+- Picking it from the new-tab palette joins from the stored invite, then opens it
+- A join that fails says why on Home
+
+#### One-layer links draw layers holding instances of deleted components
+
+- A View link to a screen with leftover copies of a deleted component showed "This layer is no longer on the board".
+- Those leftovers are left out of the link, the way the board already leaves them out.
+
 ## 0.2.19 (2026-10-29)
 
 #### Menu button on Windows and Linux
