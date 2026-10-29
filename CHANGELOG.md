@@ -2,6 +2,42 @@
 
 What changed in each version of Autopen.
 
+## 0.2.19 (2026-10-29)
+
+#### Menu button on Windows and Linux
+
+- A menu button at the left of the tab strip opens the app menu, which the hidden title bar leaves out
+
+#### Present the board as slides in the app
+
+- Present in the top bar plays the board as slides right in the window, starting on the selected slide.
+- F goes full screen; Escape or the X brings you back to the canvas where you left it.
+- Also starts from a frame's right-click menu, Option-Cmd-Enter, View > Present, or a narrated deck's slide strip.
+- The browser Present link and the app share one slideshow.
+
+#### Format tiles are all the same width
+
+- Each group in the export dialog grows by its tile count, so every format tile matches
+
+#### Dropped HTML files import the way the browser shows them
+
+- Bundled exports that build their page in frames import whole, every section included
+- Pills, buttons and labels inside frames stay where the page puts them
+- Dropdowns show their chosen value and arrow; checkboxes and radios come along
+- Input text aligns and clips like the page; textarea text starts at the top and wraps
+- Fieldset borders break behind their legend
+- Dashed and dotted borders stay dashed and dotted
+- Pages wider than the window import at their full width
+
+#### PDFs and SVGs match the board for logos, screenshots and borders
+
+- Image fills with pen.dev's modes ("fit", "fill") export as contain and cover, as the canvas draws them, instead of at full size.
+- Agents get a warning when they write those modes or a stroke as { fill, thickness }.
+- SVG image fills on shapes are clipped images, not patterns, so PDFs keep them sharp.
+- One-sided strokes and drop shadows in SVGs are vector clips, not masks.
+- SVG ids are unique per export, so several SVGs on one page don't swap images.
+- Double spaces in SVG text hold when the SVG sits in a web page.
+
 ## 0.2.16 (2026-10-07)
 
 #### New Features
