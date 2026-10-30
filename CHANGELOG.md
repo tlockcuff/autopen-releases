@@ -2,6 +2,17 @@
 
 What changed in each version of Autopen.
 
+## 0.2.22 (2026-10-30)
+
+#### See the whole team's usage, and numbers stay current
+
+- Signed in to an organization that keeps usage, Usage opens on everyone's, boards you never joined included; a picker narrows it to this computer
+- Each device sends its own usage to the organization a minute after start and after runs
+- Opening Usage catches closed boards up with the relay first, so teammates' recent runs show
+- Token counts read in billions and trillions (1.1B, not 1120.9M)
+- Claude Code terminal work that used Autopen always counts; the switch for it is gone
+- Closing a board no longer risks saving older usage numbers over newer ones
+
 ## 0.2.21 (2026-10-30)
 
 #### Share links get a tab icon and the app's zoom keys
