@@ -2,6 +2,37 @@
 
 What changed in each version of Autopen.
 
+## 0.2.21 (2026-10-30)
+
+#### Share links get a tab icon and the app's zoom keys
+
+- The tab shows the app's icon, another app's from its own icon set
+- ⌘/Ctrl + and − zoom, Shift+0 is 100%, Shift+1 fits
+
+#### Duplicate a listed board you haven't joined
+
+- Duplicate… shows on every board's right-click menu
+- A board not yet on this computer is joined first, and the copy waits for its contents
+
+#### Double-click a sticky note to edit it in place
+
+- The note opens as it looks: bold stays bold, bullets stay bullets
+- A bar above it does bold, italic, headings, bullets and numbers; ⌘B and ⌘I work
+- Typing "- ", "1. " or "# " starts a list or heading
+- Enter on a selected note opens it too; the note grows when its text outgrows it
+
+#### The left sidebar folds to its rail
+
+- A button at the bottom of the rail folds the sidebar to its icons and opens it again
+- Any tab opens it back up; clicking the open tab folds it
+- It stays folded across boards and restarts; ⌘\ still hides everything
+- Help clips and the welcome film show the new button
+
+#### Glass backdrops record instead of rasterizing on the CPU
+
+- A backdrop is recorded as a picture shader, so the surface drawing it rasterizes it on the GPU
+- A board of glass tiles over a noise shader no longer reruns that shader on the CPU per tile
+
 ## 0.2.20 (2026-10-29)
 
 #### The usage card says how old its numbers are
