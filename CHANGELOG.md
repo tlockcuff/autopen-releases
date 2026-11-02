@@ -2,6 +2,126 @@
 
 What changed in each version of Autopen.
 
+## 0.2.23 (2026-11-02)
+
+#### Edit an instance's texts, and Go to layer
+
+- Instance content section lists an instance's texts to edit, with a reset arrow per text
+- Double-click a text inside an instance to edit it in place for that instance only
+- Go to layer in the right-click menu opens Layers on that layer
+- Layers scrolls to the selection; instances and components wear the component icon
+
+#### Present setup is a big dialog with titled slides
+
+- Present opens a dialog over the board, up to 1080x760, instead of a small popover
+- Slides show large, numbered and titled, grouped by section, each in its own shape
+- "Drag slides to change the order" says how to reorder; Reset shows once it changed
+- Escape, the close button or a click outside closes it; Enter still plays
+- Snapshots take a margin, 0 for slides so neighbors don't show
+- Fix the usage pace tick's CSS comment left out of the last commit
+
+#### The usage pace tick marks where use lands by the reset
+
+- The pace text above each bar is gone; the tick says it on hover
+- The tick sits at the projected use at reset, amber when that is close to the limit
+- Tooltip: "At your current pace, you'll be at 56% in 3h 4m, when it resets."
+- Usage guide and clip updated
+
+#### Shift holds a drag level until it strays far across
+
+- Held on the line it mostly runs along, so small nudges stay level; a big stray moves freely
+- Snaps only along the held line; Shift pressed or let go mid-drag applies right away
+- A Shift-press on a selected layer drags the selection; a Shift-click drops the layer
+
+#### A selected layer shows dashed lines to its frame's edges
+
+- Like Figma: from the frame's left and top edges to the layer, through its middle
+- Only for one selected layer inside a frame that places children freely
+- Hidden while measuring or editing points or a crop
+
+#### A click anywhere on an empty Fill, Stroke or Effects row adds one
+
+- As in Figma; the + still works, and rows that already have entries ignore the click
+- Verify-section-add checks each row in the app
+
+#### A marquee from the canvas selects inside artboards it only partly covers
+
+- Like Figma: the layers it touches inside the artboard, not the artboard; the artboard only when fully covered
+- Frames holding artboards pass through the same way
+
+#### Present and PDF export play only artboards
+
+- An artboard is one slide or page, never split into its cards
+- A frame holding artboards plays them under its title, never itself
+- Export drops the option to split section frames into pages
+
+#### Drop a layer on a frame to move it inside
+
+- Dragging on the canvas lands layers in the frame under the pointer, outlined while you drag
+- Dragged off their frame onto empty canvas, they go to the top level
+- An artboard dropped into another becomes a plain frame there
+- Verify-artboards drags a frame into an artboard and back out
+
+#### A frame dropped into an artboard becomes a plain frame
+
+- Moving into an artboard clears its Artboard setting and any inside it
+- Moving into a plain holder keeps it an artboard
+
+#### An Artboards clip for the guide and its info card
+
+- Miles shows turning on Use as artboard for a frame inside another
+
+#### Drop the size menu from the Artboard section
+
+- Artboard section is the toggle and its note, no size presets
+- Artboard tool still places 1440 x 1024
+
+#### An Artboard tool, panel section and menu rows
+
+- Artboard tool (B) in the toolbar, white fill, Desktop size on click
+- Right panel Artboard section: on/off and size presets
+- Frames drawn inside an artboard start with no fill
+- Layers shows artboards with the corner marks icon
+- Right-click Flatten, Make artboard / Make plain frame
+- Export, Present and Share pick from artboards
+
+#### Agents mark artboards and keep the tree shallow
+
+- Flatten(id) removes wrappers that draw nothing, on request
+- ctx.problems flags a redundant wrapper the call just made
+- Warning when an artboard is marked inside another one
+- Skill: depth budget artboard › section › row › element, no groups
+- Brainstorm holders are plain frames; screens inside are artboards
+
+#### Clicks and labels follow artboards at any depth
+
+- Clicks pass through plain holders to the artboard inside
+- Artboards inside a holder get their own name label
+- Marquee starts inside the artboard under the pointer
+
+#### Flatten removes wrappers that do nothing
+
+- A wrapper is a frame or group with one child filling it exactly and nothing drawn
+- Flatten removes them innermost first and keeps the look; artboards and components stay
+
+#### Any frame can be an artboard
+
+- Frames take artboard: true to be one anywhere, false to make a top-level frame a plain holder
+- Top-level frames stay artboards by default; holding a marked frame makes them a holder
+- Artboards don't nest: the outer one wins
+- Present and PDF give a holder one page per artboard inside it
+
+#### A component edit relays out and repaints only its instances
+
+- Layout keeps nodes whose change only affects paint, like a component's fill
+- A component edit marks just its instances and the frames above them as changed
+- perf-component-edit.ts times a component edit across hundreds of instances
+
+#### Pasted instances keep their copied component
+
+- Instances pasted with their component on another board stayed empty: the paste dropped the new ids they pointed at
+- Verify-paste-instances copies a component and its instances to a new board
+
 ## 0.2.22 (2026-10-30)
 
 #### See the whole team's usage, and numbers stay current
