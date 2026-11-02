@@ -2,6 +2,18 @@
 
 What changed in each version of Autopen.
 
+## 0.2.24 (2026-11-02)
+
+#### A release never publishes without both update feeds - v0.2.23 shipped Mac-only
+
+- Its Windows build artifact expired before a Mac rerun published
+- So Windows update checks failed - Build artifacts keep for 7 days so a later rerun still has both - Publish fails if latest.yml or latest-mac.yml is missing
+
+#### Release smoke tests take turns on the shared Mac
+
+- Core and MoJo releases ran their DMG smoke tests at once on the mini and swapped each other's default keychain, so both failed
+- A machine-wide lock now runs one smoke test at a time
+
 ## 0.2.23 (2026-11-02)
 
 #### Edit an instance's texts, and Go to layer
