@@ -2,6 +2,35 @@
 
 What changed in each version of Autopen.
 
+## 0.2.25 (2026-11-02)
+
+#### Company keys, early features per person, and photo libraries
+
+- Signed in to a company directory, the app runs only on the company's keys; admins set each key and a monthly cap per person in Integrations, and manage admins on the directory page
+- Everyone else sees Integrations, Images and Voices as managed by the company, and only their own usage
+- Admins turn early features on per person under Early features on the directory page; they are off for everyone else
+- Photo libraries (early feature): an Images tab to browse and search a Nextcloud library, drag photos onto layers or the canvas, and agent tools to find them
+- AI images use OpenAI gpt-image-2 only; Gemini is now for voices only, and stock photos need an Unsplash key
+- Voice spending caps move to Integrations; Voices links there when a key is missing
+- Rename a tab from its right-click menu without switching to it
+- Help clips re-recorded
+
+#### Edit links open in the app from chat and mail
+
+- Copy link on Edit now gives a web link (autopen.tlok.dev/join/...) that chat and mail apps keep intact, instead of an autopen:// link they mangled into a broken web address
+- Opening it in a browser hands the board to the app, with an Open in Autopen button if the browser asks first
+- Join a board, Copy link to layer and agents take both the new link and the old autopen:// one
+
+#### Shift-click in Layers selects the run at that level
+
+- Shift-click adds every layer between the last one clicked and this one, at the clicked layer's level, skipping open children
+- Ctrl-click (Cmd-click on Mac) still adds or removes one layer
+
+#### Usage card hides a limit the plan doesn't report
+
+- Plans without a 5-hour limit show only the Weekly row, not an Unknown one
+- The chip by Send reads the week when there is no 5-hour limit
+
 ## 0.2.24 (2026-11-02)
 
 #### A release never publishes without both update feeds - v0.2.23 shipped Mac-only
