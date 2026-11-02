@@ -2,6 +2,64 @@
 
 What changed in each version of Autopen.
 
+## 0.2.27 (2026-11-02)
+
+#### Drafts grouped in a Drafts frame, and Cmd+P to go to a page
+
+- Each page's drafts sit together in its Drafts frame, labeled "Drafts" with how many it holds
+- Approve and Set aside work on drafts in the Drafts frame; Show archived reveals hidden ones there
+- Cmd+P (Ctrl+P) opens the page picker from any tab with search ready
+
+#### Milestone cards, and a Drafts frame on each page
+
+- A run that marks a milestone ends with a card: a picture of the work, a short title and a two-line description
+- Runs with several milestones, and the Milestones tab, show compact cards; click one to open its page and zoom to the work
+- Agents give each milestone a short title
+- On boards that review work, each page keeps its drafts together in one Drafts frame
+- Approving a new screen moves it out of the Drafts frame onto the page
+
+#### No special pages; drafts sit beside your work
+
+- New boards start with one page holding the cover frame as their thumbnail; there is no Cover page
+- Review first adds no pages: agents put drafts beside the screens they change, labeled Draft
+- Approve swaps a draft into the old screen's place and hides the old one as archived
+- Set aside hides a draft; Show archived on the page row reveals hidden screens, and Restore brings one back
+- Figma files set the frame on their Cover page as the board's thumbnail
+- Agents leave variables that approved screens use alone on boards that review work
+
+#### Pages on boards
+
+- A board holds pages; only the open page loads onto the canvas, so big boards stay fast
+- The page menu above Layers opens a picker with folders on the left and pages on the right, plus search
+- New page, new folder, rename, duplicate, delete, drag to reorder or into a folder
+- Move layers to another page from the right-click menu, or drag them onto the page menu
+- Cmd+Option+Up and Down step through pages; each page keeps its own view
+- New boards start with a Cover page; its 2:1 cover is the board's thumbnail on Home
+- Home cards are 2:1, and frames say Set as thumbnail
+- Figma files import with their pages, divider pages become folders, and Cover becomes the cover
+- Agents work on the page you have open, can switch pages, and can make, move and delete pages and folders
+- Find can search all pages; Share and Present links open on your page; the web viewer and phone get a page menu
+- Review boards use Drafts and Archive pages: Approve puts a draft in its place, Set aside and Restore move it to and from Archive
+- Boards made with the Final, Drafts and Archive frames can be split into pages
+- A board opened in a newer Autopen asks to update instead of risking edits
+
+#### New Features
+
+- Quick edits report in the stack, not beside the selection
+- Stack of the board's agents at the canvas's bottom right
+- Toolbar clearance on either side, toasts can skip a board
+- Model of the agents working on a board
+- An (i) beside each sidebar tab title opens its clip and guide
+
+#### One card per page
+
+- A milestone whose work is on several pages shows a card for each page, and each card opens its own page
+- Worked out as the cards show, so work moved to another page later still lands on the right card
+
+#### Fixes
+
+- A quick edit's hover actions fit on its card
+
 ## 0.2.26 (2026-11-02)
 
 #### One Integrations page for every outside service
