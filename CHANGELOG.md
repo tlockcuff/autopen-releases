@@ -2,6 +2,16 @@
 
 What changed in each version of Autopen.
 
+## 0.2.26 (2026-11-02)
+
+#### One Integrations page for every outside service
+
+- Images and Voices fold into Integrations: a grid of cards with each service's logo, grouped by what it powers
+- Open a card for its key, monthly cap, this month's spend and on switch; connecting a key turns the service on
+- Unsplash and Brandfetch can be turned off on this computer
+- With a company, admins set keys from the same cards and everyone else sees them read only
+- Phonon's page holds the default voice and Import voice file
+
 ## 0.2.25 (2026-11-02)
 
 #### Company keys, early features per person, and photo libraries
