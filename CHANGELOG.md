@@ -2,6 +2,12 @@
 
 What changed in each version of Autopen.
 
+## 0.2.37 (2026-11-03)
+
+#### Fixes
+
+- Swatch edge rings follow the swatch's rounded corners
+
 ## 0.2.36 (2026-11-03)
 
 #### Figma-style right panel
