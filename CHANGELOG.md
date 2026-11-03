@@ -2,6 +2,37 @@
 
 What changed in each version of Autopen.
 
+## 0.2.38 (2026-11-03)
+
+#### Figma stroke settings, layout guides, new effects and panel polish
+
+- Stroke: Position and Weight row, settings popover with Basic (dash, cap, join,
+- Layout guides: grid, columns and rows per frame, drawn in the editor only, ^G toggles.
+- Effects: noise, texture, glass and shader, in Figma's menu order. Glass
+- Panel: Artboard is its own section with a checkbox, speaker notes under
+
+#### Org view shows cloud voices and everyone, non-admins see only their own
+
+- Voice tile, column and note in the organization's view
+- People list of everyone in the organization's view, the same table as a board's page
+- Someone at a company who isn't an admin sees only their own devices' usage, from every computer they use
+
+#### Stroke and Speaker notes info cards stay two sentences
+
+- The right panel's Stroke and Speaker notes info cards fit the two-sentence limit again
+
+#### Every signed-in device reports usage, voices and key spend as merged deltas
+
+- Non-admins report too: sending uses Directory.reportScope, viewing keeps teamScope
+- Reports merge per key at the most of each number (mergeDeviceUsage), so usage on deleted boards stays counted
+- Only changed keys go, at most 3000 a request, remembered in team-usage-sent.json; a new account sends everything
+- A failed report is logged and tried again soon
+- Reports go when this device's own usage or voice costs change on a board, and on sign-in
+- Reports carry cloud voice costs and what each key paid for per board and month
+- Outside tool calls count on boards that aren't open
+- Company key caps count the person's spend on all their devices (DirectoryUsage.mine)
+- usage:mine gives non-admins their own devices' usage
+
 ## 0.2.37 (2026-11-03)
 
 #### Fixes
