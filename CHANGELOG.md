@@ -2,6 +2,12 @@
 
 What changed in each version of Autopen.
 
+## 0.2.34 (2026-11-03)
+
+#### Fixes
+
+- Tabs sit centered in the header with their icons, as designed
+
 ## 0.2.33 (2026-11-03)
 
 #### Link words inside a text
