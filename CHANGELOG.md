@@ -2,6 +2,20 @@
 
 What changed in each version of Autopen.
 
+## 0.2.30 (2026-11-03)
+
+#### A board reaches the agent process from its files, not a copy of the whole doc
+
+- When an agent first opens a board, main sends what is stored on disk and then only what is newer, instead of encoding the whole board
+
+#### An edit redraws only the frames it touched, even beside animated slides
+
+- One animated slide no longer makes every edit in its section redraw the whole section
+- Frames from 16 layers up get a picture of their own, so an edit to one slide leaves the others alone
+- A paused animation keeps its picture through edits elsewhere instead of recording again
+- A change to a parent frame, such as its theme, now redraws the frames inside it instead of leaving them stale
+- Play bars read only each composition's timeline, not the whole layer, on every frame
+
 ## 0.2.29 (2026-11-03)
 
 #### Agents run in their own process, so their work never freezes the app
