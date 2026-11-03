@@ -2,6 +2,167 @@
 
 What changed in each version of Autopen.
 
+## 0.2.33 (2026-11-03)
+
+#### Link words inside a text
+
+- Highlight words while typing in a text and press Ctrl+K, or right-click and pick Add Link, to link them to a web page or to a frame or page on the board
+- The link field suggests the board's frames and pages, and turns allbulkfoods.com/flours into a full web address
+- With the caret in linked words, a bar shows where they go, with Open, Edit and Remove
+- Linked words look the same as the words around them, as in Figma; hovering them on the canvas names the link
+- Clicking a link while presenting, or in a shared view link, opens the web page or goes to the frame
+- HTML, React and SVG exports keep the links
+- Figma imports keep links on part of a text, and a link on a whole text layer
+- Agents can link words with StyleText's href
+
+#### Style part of a text layer, as in Figma
+
+- Highlight words while typing in a text and press Ctrl+B, Ctrl+I or Ctrl+U to bold, italicize or underline just them
+- With words highlighted, the properties panel sets font, weight, size, letter spacing, underline, strikethrough and color on those words only; the text stays open and the words stay highlighted
+- The panel shows Mixed where the highlighted words, or a whole text, differ
+- A style set on a whole text layer applies everywhere in it, as in Figma
+- Each style change is one undo step, and undo while typing steps back through them
+- Typing, pasting and Change Case keep each word's style where it is
+- Text with mixed styles draws, wraps and sizes itself correctly on the canvas, and exports as styled spans to HTML, React and SVG
+- Figma imports keep mixed text styles instead of flattening them to one
+- Agents can style part of a text with StyleText
+- New help guide: Style part of a text
+
+#### Format your message as you type it
+
+- The agent message box takes formatting: Ctrl+B bold, Ctrl+I italic, Ctrl+E or backticks for inline code, Ctrl+K to link selected text (Cmd on Mac)
+- Typing "- " or "* " starts a bullet list, "1. " a numbered one, "> " a quote and ``` a code block
+- In a list, Enter adds the next item, Enter on an empty item ends the list, and Tab or Shift+Tab indents
+- Pasting from a web page or document keeps bold, italic, lists, links and code; pasted markdown keeps its formatting too
+- Your sent messages show formatted in the conversation, and the agent receives them as markdown
+
+#### Every Google font, your installed fonts, and Upload font, kept with the board
+
+- The font picker lists the whole Google Fonts catalog, searchable, and stays quick by drawing only the rows in view
+- Fonts installed on your computer show in the picker too, each in its own face; picking one stores it with the board so everyone sees it
+- Upload font in the picker adds TTF, OTF, TTC, WOFF or WOFF2 files to the board and sets the selected text in it
+- Drop font files on the board to add them; selected text switches to the new font
+- Collaborators, view links, shared links and exports draw text in the board's own fonts
+- The weight list follows the weights each font actually has
+
+#### Place images from a network share, a file or a web address
+
+- Place image (toolbar, File menu, right-click menu, Ctrl+Shift+U) opens the file picker, network locations included; with a shape selected the image fills it
+- The Images tab can add a folder on this computer or a network share (\\server\share, mapped drives) as a library to browse, search and drag from
+- Settings, Integrations adds a folder by picker or by typing its path
+- Pasting an image's web address or a file's path, such as Explorer's Copy as path, places the image
+- Dropping one image file on a shape fills it; a link dragged out of a web page places its image
+
+#### Pop the agent conversation out into its own window
+
+- Pop out in the conversation header moves a board's chat into a window of its own, to keep on another screen while the board stays in view
+- The sidebar folds to its rail while the chat is out; the Agent tab says where it went, with Show window and Bring back
+- Closing that window, or Dock in it, puts the chat back in the sidebar
+- The popped-out chat stays live: messages stream in, sending and attachments work, it offers the layers selected on the board and anchors to the page open there
+- Clicking work an agent did in it goes there on the board
+- It reopens at the size and place it was left, on whichever screen
+
+#### Layer blend modes, as in Figma
+
+- Blend mode now works on any layer: Multiply, Screen, Overlay, Color burn, Color and the rest blend the whole layer with what is beneath it
+- The blend mode menu sits beside Opacity in the Layer section, in Figma's order and names, and shows Mixed across a selection
+- Frames and groups pass their children's blending through by default; set one to Normal to keep that blending inside it
+- Layers that blend on the board blend with each other, never with the canvas behind them
+- SVG and HTML exports keep layer blend modes, and Figma and web imports bring them in on the layer instead of its fills
+
+#### Change letter case from the panel or a text selection
+
+- Typography has a case control: UPPERCASE, lowercase, Title Case and Sentence case, for one or many text layers at once, one undo step
+- Highlight words while editing text and right-click for Change Case to convert just those words
+- Alignment icons in the properties panel no longer shrink to dots in a narrow panel
+
+#### Drag several layers at once in the Layers panel
+
+- Dragging a selected row in Layers carries every selected layer, keeping their order, with a count while you drag
+- Dropped into a frame or group they keep their place on the canvas, unless it uses auto layout
+- The whole move undoes in one step
+- Bring forward, send backward, to front and to back keep several layers in their order
+- Ctrl+Shift+] and Ctrl+Shift+[ also bring to front and send to back
+
+#### Preview an image before exporting it
+
+- Export has a Preview row for PNG and SVG that shows exactly what the file will hold, hidden layers, masks and effects included
+- The preview follows the chosen format and scale, and redraws a moment after the design changes
+- With several layers, it shows the first and says how many there are
+
+#### A milestone shows the person it was made for
+
+- A milestone with no agent on it, such as one marked from your own terminal, now shows the person's avatar and name in the Milestones tab
+- New milestones record who they were made for and sync that to everyone on the board; older ones show as before
+- list_milestones names that person, so agents can tell whose work a milestone was
+
+#### New Features
+
+- Video is greyed out on a page with no timelines
+- Export dialog with Image, Document, Video and Code tabs
+- Every font in the picker is drawn in its own face, as is the family in the field
+
+#### Frames set apart inside a holder frame show their names
+
+- Frames spaced apart inside a top-level frame with no auto layout, clear of its edges and of each other, show name labels like screens in a section
+- Click one of these names to select the frame, double-click to rename it; the names hide when zoomed out too far to fit
+- The agent and the Artboards guide now explain which frames show a name on the canvas
+
+#### Exported pages and SVGs never carry a script link
+
+- HTML, React and SVG exports drop any link that isn't a web, mail or phone address, a relative path, or a place on the board, such as a javascript: link
+
+#### Favorites stays open unless you shut it
+
+- Favorites in the Home sidebar starts open on every page, including inside an account
+- Shutting it is remembered on this computer until you open it again
+
+#### New conversation is always the last button in the conversation header
+
+- Pop out and Dock sit just before New conversation
+
+#### A link dragged out of a web page only reaches the public internet
+
+- An image link dragged in from a web page can no longer point at the office network or a file path
+- Pasted addresses and paths, the file picker and dropped files still reach network shares
+
+#### PNG files come out at the full size of the picked scale
+
+- A PNG export is now as large as the scale asks, so a 1920 px frame at 2x is 3840 px wide; it was never more than 1000 px
+- Copy as PNG is full size too
+- An image too big to make (over 16384 px a side or 64 megapixels) says so and asks for a smaller scale
+
+#### Every action undoes in one Ctrl+Z
+
+- Ctrl+Z, Ctrl+Y and Ctrl+Shift+Z on Windows and Linux are handled by the board itself, so undo always reaches it
+- Undo still works on the board when a checkbox, slider or color swatch has focus
+- Each command is exactly one undo step, however quickly the next one follows
+- A drag, resize or rotate stays one undo step even when you pause mid-drag
+- Dropping a layer into a frame, and an Alt-drag copy, undo in one step with their move
+- Holding an arrow key nudges as one undo step
+- Dragging a color picker on the canvas bar, a mesh gradient or a color variable is one undo step
+
+#### Right-click menus near the bottom of the window open upward
+
+- A right-click menu opened low in the window flips up so every option shows, instead of running off the bottom
+- Applies to every menu: Home folders and boards, the canvas and layers, pages, tabs, and agent conversations
+- Submenus move up to stay on screen, and a menu taller than the window scrolls
+
+#### Mouse back and forward step through library folders
+
+- The mouse's back and forward buttons (and Alt+Left/Right, or a keyboard's Back and Forward keys) now go back and forward through the folders you opened in the Images panel
+- They step the in-app browser's pages too while it's open
+- They never send the whole window away from the board you're on
+
+#### Grouping layers from an auto layout frame keeps them intact
+
+- Images and rows that fill an auto layout frame keep their size when grouped instead of collapsing or reflowing
+- Ungrouping them puts them back filling the frame, as they were before
+
+#### Fixes
+
+- Setting segments fit their labels, so the text sits centered
+
 ## 0.2.32 (2026-11-03)
 
 #### A person's cursor shows only on the page they're on
