@@ -2,6 +2,33 @@
 
 What changed in each version of Autopen.
 
+## 0.2.36 (2026-11-03)
+
+#### Figma-style right panel
+
+- One row per paint and effect, effect popover, short nothing-selected panel
+- Nothing selected: Board name, one Variables row that opens the manager, Export.
+- Frame head with align row and artboard toggle; Position with rotation and turns; Auto layout with
+- Fill and Stroke: one row per paint (the color picker's paint field, then eye and minus). The swatch
+- Effects: one row per effect; the row opens a popover with type, blend, position, blur, spread and a
+- Export opens the Export dialog on the selection or the page; the dialog loads on first open.
+- Help cards: Frame, Appearance and Export replace Layer, Artboard and Corner radius.
+- scripts/verify-right-panel.ts covers the new panel; verify-properties, verify-themes, verify-help-panel,
+
+#### Hidden frames stay out of exports, and one bad frame no longer fails the batch
+
+- Hidden frames, and layers inside hidden ones, are left out of PNG, JPEG, video, SVG, PDF and code exports, with a note naming them
+- Hidden artboards inside a section no longer show up in the Export list, Present or PDF pages
+- A frame that can't be drawn is skipped and named; the rest of the export still saves
+- Notes about what was left out show after the export finishes
+
+#### A board opens centered on its content the first time
+
+- Opening a board you were invited to waits for its layers to arrive, then zooms to fit them, including ones that land a moment later
+- A page's view is only remembered once its layers have loaded, so an empty first look is never brought back
+- A remembered view that shows none of the page zooms to fit instead
+- Switching to a page for the first time fits its content the same way
+
 ## 0.2.34 (2026-11-03)
 
 #### Fixes
