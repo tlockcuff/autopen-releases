@@ -2,6 +2,23 @@
 
 What changed in each version of Autopen.
 
+## 0.2.29 (2026-11-03)
+
+#### Agents run in their own process, so their work never freezes the app
+
+- The MCP server and every agent session run in a utility process; the app's main process only applies their edits
+- Clicks, typing and window drags stay responsive while an agent reads or edits a big board
+- Undoing an agent's run, streamed edits and their rollback work as before
+- If the agent process stops, the app starts it again and the next agent call works
+
+#### A run's end waits for streamed pieces still loading their board
+
+- A piece that arrives while its board is still loading can no longer land after the run ended and stay on the board
+
+#### A cached Google font is written whole before anyone reads it
+
+- Main and the agent process share the font cache, so a font lands under its name only once fully written
+
 ## 0.2.28 (2026-11-03)
 
 #### Record Performance Trace, for when Autopen is slow
