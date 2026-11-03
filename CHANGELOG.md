@@ -2,6 +2,42 @@
 
 What changed in each version of Autopen.
 
+## 0.2.28 (2026-11-03)
+
+#### Record Performance Trace, for when Autopen is slow
+
+- Help > Record Performance Trace records every process for up to a minute, then Stop saves one zip to Downloads
+- The zip holds a Chrome trace, a main-process CPU profile, and a report of the machine, GPU, memory, frame times and open boards
+- Autopen now keeps a log of its own (main.log, two files at most), sent along in the zip
+- profile-board.ts takes --src and --throttle to profile a real board from any app's data on a slowed CPU
+
+#### Fixed style offer, Built-in styles or No style
+
+- Agents on a board with no style ask the same offer every time: Built-in styles or No style
+- Built-in styles opens the style gallery, and the style picked there answers the agent
+- No style lets the agent design plain and neutral without setting a board style
+- The agent now hears the picked style's key with the answer
+- Builds can add company styles (content/styles/company), offered first and listed first in the gallery
+
+#### Side panels stop rereading the whole board on each edit
+
+- The canvas stays smoother on big boards while an agent works
+- Milestones does nothing while its tab is hidden, and formats dates without making a formatter per card
+- The page row counts archived layers from an index instead of walking every layer
+- The play bar reads only each composition's timeline, and finds their boxes once per redraw, not on every pan frame
+
+#### Bullets right under the subject stay bullets
+
+- What's new splits a commit at its first line, so bullets written with no blank line under the subject still show as bullets
+
+#### A middle-button pan follows the pointer past the canvas edge
+
+- Panning with the middle button keeps going when the pointer leaves the canvas or the window
+
+#### Company style options survive the question check
+
+- A company style offered to the agent keeps its preview instead of showing as a plain option
+
 ## 0.2.27 (2026-11-02)
 
 #### Drafts grouped in a Drafts frame, and Cmd+P to go to a page
