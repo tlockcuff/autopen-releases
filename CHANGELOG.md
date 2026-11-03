@@ -2,6 +2,31 @@
 
 What changed in each version of Autopen.
 
+## 0.2.31 (2026-11-03)
+
+#### Clipping masks, as in Figma
+
+- Use as mask (⌥⌘M, or right-click) wraps the selection in a Mask group; its bottom layer masks the rest
+- One layer selected becomes a mask over the layers above it; Remove mask turns it off
+- Masks clip by their opacity, so any shape works and soft fills give soft edges
+- What a mask hides can't be clicked, and the mask has its own icon in Layers
+- SVG export keeps masks; HTML export clips to rectangle and ellipse masks
+- Masks come through from Figma files, and agents can make them
+
+#### Autopen links itself into Claude Code and the Claude app
+
+- Every start adds Autopen to Claude Code and the Claude desktop app, no clicks
+- Claude desktop app chats can see and edit your open boards
+- One Settings switch covers both; turning it off unlinks them and stays off
+- Someone else's server named autopen is never replaced unasked
+
+#### A chat stays on the page it was sent from
+
+- Each run is anchored to the page open when its latest message was sent; get_app_state reports it as homePage
+- Execute calls start on that page every time; UsePage lasts one call unless sticky, and WithPage runs a step elsewhere then comes back
+- A message sent from another page moves the chat there, and the agent is told
+- An agent's cursor shows only on the page it is working on
+
 ## 0.2.30 (2026-11-03)
 
 #### A board reaches the agent process from its files, not a copy of the whole doc
