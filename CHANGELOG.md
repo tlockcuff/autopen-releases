@@ -2,6 +2,153 @@
 
 What changed in each version of Autopen.
 
+## 0.2.40 (2026-11-04)
+
+#### View links play motion and show just the board name
+
+- Motion and video play right on the shared page: a play button, then a bar to pause, scrub and mute
+- Plays once and stops on the last frame, with Replay
+- The top of a shared page shows only the board name
+
+#### People shows the app version each person is on
+
+- Each row shows the version after the email
+- Anyone behind the newest version shows it in amber
+
+#### Data inputs and text measuring for script nodes
+
+- Scripts can take data: a json input holds a list or rows like {label, value}, edited in the panel as a text box with one row per line
+- Text that isn't valid JSON is kept out, with a note saying why
+- Scripts can measure a label with pencil.measureText to place it exactly, using the same fonts the canvas draws with
+
+#### Scale and recolor drawings
+
+- Agents can scale a logo or imported SVG with everything inside it, so paths, strokes and effects shrink or grow together instead of getting cropped
+- Copying a drawing can make it a new size in one step
+- Agents can recolor a drawing in one call; line art stays line art and never picks up a fill
+- A two-color mark can swap each color for its own new one, including theme colors
+
+#### The properties panel works from the keyboard
+
+- Tab and Shift+Tab move through every field, button, menu and checkbox in the panel and its popovers
+- Keyboard focus shows a ring on every control
+- Plain keys stay with the panel while it has focus, so Tab no longer selects the next layer
+- Enter or Space presses a button; Escape closes a popover and goes back to the button that opened it
+- Focus stays in the panel when it redraws
+
+#### Paste to replace
+
+- Right-click Paste to replace, or Mod+Shift+V, puts what is copied in place of each selected layer
+- A copied picture fills each image box at its size, keeping its crop, and takes the size of anything else it replaces
+- Copied layers land where the replaced ones were, in their place among their siblings
+
+#### A z track restacks a layer among its siblings
+
+- Higher draws in front, others stay at 0 in layer order: a planet can pass behind the sun and come round in front
+- Drawing, clicks on the canvas, MP4 and the web export all follow it
+- The motion guide shows the orbit
+
+#### Boards with 0px text no longer freeze the app
+
+- A 0px text sent Skia a NaN line height; its paragraph cache then spun forever evicting it, locking the window
+- Only finite line heights and underline thicknesses reach Skia now
+
+#### Agents read less to get the same work done
+
+- Get reads 2 levels by default, and a Get visitor only reads as deep as it walks
+- Word timings on voiceover lines come back only when asked with words: true
+- Organizing a board and cloud voices moved to their own guides, read when needed
+- Masks, blend modes, hand-drawn strokes and type settings moved out of the main skill into paint and typography
+- The app state lists at most 30 closed boards and rounds positions to a tenth
+- Saving board memory answers with its length instead of echoing it back
+- Web pages read through the browser come back truncated, with a hint to query one section
+
+#### x/y in auto layout keeps the spot as an absolute layer
+
+- A new layer or copy given x/y inside a row or column now stays where it was placed, as an absolute layer, with a warning
+- The warning suggests turning the parent's layout off when several layers need placing
+
+#### Warn when a read came before generated results landed
+
+- A call that waits for generated images or artwork now says when it read a layer whose results had not landed yet, and to read it again in the next call
+
+#### Clearer errors when reading the board
+
+- Get with a list or an object instead of one id now stops with how to read several nodes, instead of quietly returning the whole page
+- Get on a page id returns that page with its top-level layers
+- Print and console.log errors now point to Print
+
+#### Dashes on brush and hand-drawn strokes are even
+
+- Dashed brush strokes and width profiles now show their dashes; before, the dashes were dropped and only the brush's own random breaks showed
+- Dashes on wobbly (dynamic) strokes are measured along the line itself, so they stay even however much it wobbles
+- A brush's own random breaks are left out when the stroke is dashed, so the dashes are the only gaps
+- PNG, PDF and video exports match the canvas
+
+#### Markers and voice lines move with the scenes transitions move
+
+- Adding a transition (one cut or every cut) moves the markers and voice lines in each scene along with it
+- Markers between scenes or after the last scene now move with the scene before them instead of staying put
+- Voice lines timed in seconds follow their scene too, so narration no longer drifts after scenes shift
+- The same goes for dragging, lengthening, reordering, deleting and freezing scenes on the timeline
+
+#### Stock photos match the search better, sounds come from Openverse
+
+- Generate stock picks among the few most relevant photos instead of whichever fits the frame's shape best, so a far-down match no longer wins
+- Public domain stock skips clip art, cutouts and drawings
+- find_media searches Openverse for music and sound effects by default, where Commons found little
+- The generate guide shows how to see thumbnails and choose a photo yourself with find_media
+
+#### Refuse image adjustments written as percents
+
+- Insert and Update refuse an image adjustment past -1 to 1 instead of blowing the photo out
+- The message names the fraction meant, as in "contrast: 20 looks like a percent; use 0.2"
+- An unknown adjustment such as brightness points at the one that does that job
+
+#### Connectors cross zones drawn behind their nodes
+
+- A zone or lane drawn as its own frame behind the nodes no longer blocks connectors, as long as it holds a connected node
+- A frame on top of the nodes, or one that only partly covers a node, still blocks
+
+#### Agents' x/y placement is kept or refused, never quietly moved
+
+- A new frame with no layout whose children all have x/y keeps them where they were placed
+- x/y on a new layer inside auto layout now stops the change and says how to fix it, instead of a warning after the layer was moved
+- A frame with no layout counts as a row for this check, as it does on the canvas
+- Copying into auto layout drops the original's position instead of warning about it
+- Arrange refuses children of a frame with no layout, which it could never move
+
+#### Cropping a picture in a grid keeps the box filling its spot
+
+- Crop mode only saves a size the layer holds as its own number, never one set by fill, hug or a variable
+- Crop handles hide on a side the layout sizes; the picture still pans
+
+#### Connector parts keep their ids, and clearer motion warnings
+
+- A connector's arrowhead, marker and labels keep their ids when Connect redraws, like its line
+- Warns when a fade starts from opacity 0, which keeps the layer hidden
+- Warns when x or y keyframes repeat the layer's position instead of offsetting it
+- strokeJoin and lineCap point at strokeLinejoin and strokeLinecap; audio on a layer points at the composition's timeline
+
+#### Long video exports finish in the background
+
+- An agent's MP4, GIF or deck export still rendering after two minutes keeps going and is reported on a later call
+- WaitForGenerate waits for it, at most 240 s, under the MCP reply timeout
+
+#### A layer over whole scenes is an overlay, not a scene
+
+- Transitions and ripples no longer move a progress bar or background that runs over the scenes
+- The motion guide says so
+
+#### The folder path keeps its height over long folder lists
+
+- Library > folder no longer slides under the type tabs
+
+#### The chart legend gets its own row
+
+- Many people no longer push the legend off the card or hide Split by
+- Tool calls and per day stay on one line
+
 ## 0.2.39 (2026-11-04)
 
 #### Photo libraries (Nextcloud) for everyone
