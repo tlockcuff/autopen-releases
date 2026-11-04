@@ -2,6 +2,609 @@
 
 What changed in each version of Autopen.
 
+## 0.2.39 (2026-11-04)
+
+#### Photo libraries (Nextcloud) for everyone
+
+- Connect a library and photo servers show in the Media tab and Settings for everyone, no early feature needed
+- Agents see connected libraries in every run
+- Early features stay ready for the next one; the admin section hides while there are none
+
+#### scrollbars, opening links on the canvas, and editing fixes
+
+- The board has thin scrollbars that grow on hover
+- Resting on a link or a typed-out web address on the canvas offers to open it
+- Unlinking a text's own link unlinks all of it; only valid web addresses count as links
+- Double-clicking a selected frame's background crops its image
+- Content section has an Edit on the canvas button
+- Pasting next to a chip in the chat box pastes into the box
+- The Export dialog is larger
+
+#### What each board spent on images and voice, made against used
+
+- Usage shows each board's and person's image and voice spend, with how much of it the board still uses
+- Download the spend as a CSV
+
+#### A company sign-in signs footage in on its own
+
+- A directory provider can hand out a relay token; the desktop trades it for a footage ticket with no browser
+- Signed in to the directory means signed in for footage; Apple stays the core sign-in
+
+#### Clips reach the board while their uploader is offline
+
+- Each desktop puts the clips it has on the relay in the background, two at a time, resuming after a quit
+- Someone opening the board later gets a clip from the relay when nobody online has it
+- The clip bar says Sharing N% while it goes up; nothing new to choose
+- A board past 80% of its footage storage gets a notice, and a clear one when it's full
+- Admins can change a board's footage limit (API only, Settings row to come)
+- Sign in with Apple plumbing: asked only when a clip needs the relay
+
+#### An in-app right-click menu for text you are editing
+
+- Cut, copy, paste, bold, italic, underline, strikethrough, lists, case and links
+- Spelling suggestions and Add to Dictionary in the same menu
+- Italic is no longer greyed out before the font list loads
+- Bold, italic and undo show at once, even in big frames
+- Strikethrough on Shift+Cmd+X
+
+#### Footage reaches people from the relay when nobody has it
+
+- Shared copies upload to the relay in sealed 4 MB chunks, bound to the copy's hash and place
+- Uploads resume where they stopped; two people uploading one file meet in the middle
+- A clip nobody online has arrives from the relay in order, even while it's still uploading
+- Peers stay the fast path; without sign-in footage stays peer to peer
+
+#### Footage in R2, sealed, behind Sign in with Apple
+
+- Rooms keep a ledger of their footage; sealed 4 MB chunks live in R2 under footage/<room>/<id>/<n>
+- Every footage request needs a session ticket the relay signs after checking an Apple identity token
+- Limits per board (100 GB, admins can change), per uploader per day, and for the whole relay
+- Footage no board uses is deleted after 14 days; a board deleted for everyone takes its footage
+- Local relay with real Workers runtime and local R2 for tests (packages/relay/src/local.ts)
+
+#### Type settings, lists, and editing that matches the canvas
+
+- Type settings popover from the Typography header: Basics and Details
+- Decoration style, thickness, color and offset
+- Small caps, number styles, ligatures and stylistic sets the font has
+- Vertical trim, paragraph spacing and indent, truncate to max lines
+- Bulleted and numbered lists; type "- " or "1. " to start one
+- Editing text shows one copy, one outline, and wraps like the canvas
+- Exports carry the new type settings to SVG, HTML and React
+
+#### A shorter right-click menu with submenus
+
+- Rows that don't fit the selection are left out instead of grayed
+- Copy as › holds PNG, SVG and HTML; Copy link to layer stays in the main menu
+- Arrange › holds Bring to front, Bring forward, Send backward and Send to back
+- Transform › holds the flips and 90° turns; on a picture the turns keep it upright
+- Image › holds crop, colors, background edits, vectorize, trim and save
+- Select layer › starts with Go to layer and Select parent, then the layers under the cursor
+- One Flatten row; Union, Subtract, Intersect and Exclude move into Boolean ›
+
+#### AI image spend in Usage, an OpenAI cap, and limits on agents
+
+- Every OpenAI image (Generate ai, replace background) records its cost on its board, priced from the tokens billed
+- Settings > Usage gets an Images tile and column; the Board tab shows a board's AI image spend
+- Voice and Images cells in the boards table show cost only
+- The OpenAI key takes a monthly cap in Settings > Integrations; images stop before passing it
+- Agents start at most 4 AI images a call and 20 per board an hour, and are told images cost money
+
+#### Right-click menus, an empty start, and Openverse keys for the whole company
+
+- The Media tab opens on an empty state and loads nothing until you search
+- Right-click a result: Add to canvas, Fill selection or Replace image, About, Open original, Reveal in Finder; sounds get Play and Add at playhead
+- The spinner on a playing sound's play button is white
+- Admins can share their Openverse keys with everyone in the company; members can't connect their own
+- Adjust colors… opens the image fill's picker on its sliders again
+- The selection bar's export button opens the Export dialog on the selection, and clicks inside it no longer reset it
+- New conversation and Cmd/Ctrl+N put the cursor in the composer
+- The timeline clip style builds whole again
+
+#### A cleaner fill picker that opens beside the panel
+
+- The picker opens left of the right panel, level with the row, as in Figma
+- Image fill: a preview to click or drop a file on, a Link field, Crop and Adjust groups with their resets
+- Sliders line up in fixed columns; adjust sliders fill out from 0 and a double-click on a label resets one
+- Gradients get Reverse stops beside the angle; mesh swatches fill the width
+- Shader labels sit in a left column, Source says what the shader reads, and color opacity no longer clips
+
+#### Controls for the CapCut extras
+
+- Transition chip on every cut; a transition shows as a shaded band, half on each clip
+- Picker anchored at its cut, with thumbnails of the two clips for every kind; Zoom blur, Whip, Spin, Glitch and Light leak tagged new
+- Drag a transition's edges to set its length, stopping at a red line at half the shorter clip
+- Transition section in the right panel: live preview, kind, length, direction, ease, Use on every cut, Back to a plain cut
+- Clip menu: Freeze this frame (⇧F), Reverse and Replace clip, beside Split, Duplicate and Delete
+- Playback section: Reverse switch, Freeze this frame and the hold length
+- Holds show a snowflake badge, reversed clips a Reversed badge; their sound lane says why it's muted
+- Beats section for music: Find beats, tempo and count, Snap to beats, Cut to the beat with every bar, beat or 2 bars
+- Beat ticks on the Audio lane, taller on each bar; scene edge drags snap to beats with a tip
+- Caption style: Animation tiles (None, Highlight, Pop, Both, Typewriter), Highlight color, a preview that plays
+- Look row for clips and image fills: swatches of its own frame, amount, what it's built from, Use on every clip
+- Look badge on clip bars; duplicated scenes start with a plain cut
+
+#### Wikimedia Commons in the Media tab
+
+- Free to use lists Wikimedia Commons next to Openverse, which stays the default
+- Commons searches All, Images, Sounds and Video; Openverse's Video says it has images and sounds only
+- Video results are poster tiles with their length, and drop on the canvas, a shape or the timeline with their credit
+- Sound rows draw flat without a waveform; slow line and unavailable card name the source
+- Window calls move to free:* and route by url; verify-commons.ts drives a fake Commons and --live
+
+#### Wikimedia Commons as a public domain source
+
+- commons.ts searches images, sounds and videos, CC0 or public domain only via structured data
+- Licence and restrictions are checked at search and again at import, like Openverse
+- Videos come from the largest VP9 WebM transcode up to 1080p and 500 MB, never the original
+- ingestAsset takes commons: image and sound urls; find_media searches Commons by default and lists videos
+- safeFetchAsset takes a user agent, for Wikimedia's client policy
+
+#### WebM files get shared copies
+
+- packages/doc webm.ts demuxes VP9/VP8 and Opus into the same movie the MP4 reader gives
+- probeFileAsync reads WebM too, so the existing VP9-capable transcode makes its H.264 copy
+- Laced blocks leave their track unread; agent snippets still refuse WebM by name
+
+#### Folders for everyone, lit drop lanes, folder sound waveforms
+
+- Your files and Add a folder… show in the Media tab for everyone; Nextcloud (Connect a library…) stays an early feature
+- A sound dragged over the timeline lights the audio lane, where it lands, even over the Main track
+- A clip or image dragged over the Main track or the audio lane lights the Main track
+- The lit lane clears when the drag ends
+- Sounds from a folder show their length and waveform
+
+#### Agent calls, captions and beats for the CapCut extras
+
+- SetTransition, UseTransition, FreezeFrame, DetectBeats and CutToBeat in execute
+- DetectBeats decodes the music in the media window and lands beats, bpm and downbeat on the clip
+- MP4 captions and the caption preview share one caption kernel; highlight, pop, both and typewriter burn in
+- Motion, voiceover and execute guides document transitions, reverse, looks, freeze, beats and caption animation
+- verify-extras.ts exports a composition with every extra and checks its frames
+
+#### Decode reversed clips without starting over each frame
+
+- ClipDecoder keeps the eight frames before a backward ask as bitmaps, freeing the decoder's own
+- 90 reversed frames in GOPs of 30 decode 247 frames instead of 1395
+
+#### Draw transitions, looks and reverse everywhere
+
+- Canvas, screenshots and MP4 frames sample each scene's transition part at draw time
+- Zoom blur and glitch run the scene through a runtime shader; light leak screens a warm glow; whip smears on one axis
+- Looks join adjustments in one color matrix on image and video fills; image looks bake into HTML, SVG and React
+- HTML export plays transitions with the runner's kernel and seeks reversed clips frame by frame
+- Kitchen-sink composition gains a crossfade transition, a teal look and highlighted captions
+
+#### CapCut extras data model
+
+- Transitions stored once on the incoming scene (motion.transition), 11 kinds, sampled at draw time
+- Main track keeps each transition cut overlapping by its length, capped at half the shorter scene
+- Use one transition on every cut; legacy keyframe transitions read and upgraded
+- Reverse flag on clips: source runs backwards, sound muted, splits stay continuous
+- Freeze frame insert: split and hold the cut's moment (1 s, or a bar with beats)
+- Beat detection from samples, beats on music clips, snap and cut to the beat
+- Caption animations (highlight, pop, both, typewriter) with per-word timing and a shared caption kernel
+- Eight looks built from image adjustments, with an amount
+
+#### Double-click a marker to rename it
+
+- Enter or a click away renames it, and every layer and clip timed to it follows, offsets kept, in one undo step
+- Spaces become underscores; a name that's taken or can't be a marker stays red; Escape keeps the old name
+
+#### Nudge a reframed clip's crop on the canvas
+
+- Crop mode opens on a clip layer and shows the frame at the playhead
+- On an Auto reframe clip a nudge pins that scene's crop, which reframing never moves
+- verify-clip-editing.ts drives the clip editing UI over real footage, with throttled timeline timings
+
+#### Clip bars, clip sound, the clip panel and Make it a video
+
+- Clip bars show a filmstrip of the source moments they play, a speed badge (30×, 0.5×, Curve, Freeze) and Sharing 42% or Up next while a copy is made
+- Trim a clip from either edge of its bar; the tip shows the new in or out point and the change, later clips move along
+- A Clip sound lane under the Main track draws each clip's waveform, or why it plays silent
+- The clip panel: start and length, in and out in the source, Speed (presets, custom, curves with an editable Custom curve), Sound (volume, mute, Duck under voiceover), Media (the file and whether everyone has it) and Fill the frame
+- Auto reframe finds each scene's subject from stills and crops around it; crops nudged by hand stay
+- Make it a video turns a frame into a composition at 16:9, 9:16 or 1:1, 1080p or 4K
+- The Composition section picks its size from the same menu, or a custom one, and its frame rate as 30, 60 or Other
+- Video files dropped on the canvas or the timeline land at once; their shared copies are made in the background
+- A Split button in the timeline toolbar; narrow docks drop the frame number instead of cutting off the time; narrow clip bars keep their name
+
+#### Clip editing data and media reads
+
+- Trim, retime, speed curve editing and reframe crop helpers in packages/doc video.ts
+- Speed curve presets tuned to keep about the clip's length; presets scale with a sped-up clip
+- A person can unmute a sped-up clip (muted: false); duck: false keeps a clip's sound under voiceover
+- Composition sizes: 16:9, 9:16 and 1:1 at 1080p or 4K (video-sizes.ts)
+- Main reads filmstrip stills, a clip's file details and peer sharing progress, and imports dropped video files
+
+#### See the work agents did, not just their tokens
+
+- Runs in Autopen count their tool calls (subagents' too), how long they worked, and whether they failed
+- Undoing a finished run counts it as undone
+- New Tool calls tile, and a card for where the work happened: in Autopen beside outside sessions
+- The chart shows tokens, runs or tool calls, split by person, where it happened, or model
+- Agent runs card: how runs ended, agent time, average and longest run, cost per run, cache share and models
+- People table: runs, calls in app and outside, tokens and agent time; open a person for their own page
+- Boards table gets a Calls column; a board's page gets the chart, runs card and new people table
+- Faces: each person's profile photo, else their Gravatar from the organization's list, else their initial
+
+#### Timeline drops go through the Timeline's own drop API
+
+- Sounds, folder videos and images dropped on the timeline are copied onto the board, then placed by dropOnTimeline
+- The lanes light up under a drag from the Media tab
+- A folder video dropped on the Main track becomes a scene
+- A music clip's bar ends with a shorter sound unless it loops
+- Agents' Openverse client and the Media tab follow keys connected in Settings
+
+#### The 1080p note names clips whose originals aren't on this Mac
+
+- The Export dialog asks main which clips in the export lack their original here, and shows the note above 1080p
+- Who added a clip isn't recorded, so the note says another Mac
+
+#### HTML exports play clips as <video> in step with the timeline
+
+- A video fill becomes a muted <video> layer the motion runner plays at its speed, seeks while paused or past 16x, and stops outside its layer's window
+- Speed curves are sampled across their layer; crops, Fill the frame and adjustments are warned about
+- Clips' shared copies are written beside the page, or inside a one-file page up to 50 MB
+- Layers with only a time window now come and go in HTML exports, as slideshow photos do on the canvas
+
+#### Clips play on the canvas, and compositions keep only what is near the playhead
+
+- A residency manager decodes the images and clip frames a composition draws from its playhead to half a second ahead, lets the rest go, and shows the exact frame when paused or sought
+- A 300-photo slideshow past the image budget now plays sharp to the end, holding about 60 MB instead of every photo
+- The canvas decodes each clip's shared copy with WebCodecs from samples main reads off disk; frames reach CanvasKit as GPU bitmaps
+- A frame still decoding draws the nearest decoded one instead of a gap
+- A clip's sound plays with canvas playback at its speed, ducked under voice
+- Verify-clip-canvas checks frames on screen, sharpness, colors, sound, and measures playback at full speed and 4x throttled
+
+#### exports, screenshots and filmstrips decode each clip's exact frames
+
+- ClipDecoder (packages/viewer) decodes a clip's frames by index with WebCodecs, going on from the last frame and jumping to a later keyframe instead of decoding through
+- Main's hidden media window keeps a decoder per clip for main's and the agent process's renderers; the original when this Mac has it, else the shared copy
+- A clip's sound joins the export mix at its speed, ducked under voice; muted, frozen and sped-up clips stay silent
+- The export result lists clips drawn from the 1080p shared copy, with a warning
+- clipTrackOf, frameTimes, clipSounds and ADTS wrapping in packages/doc
+- Verify-clips checks every exported and screenshot frame against the bars the test footage spells, 20 clips back to back and the timelapse scenario
+
+#### Video fills draw the exact source frame
+
+- A video fill paints like an image fill: mode, crop, adjust, opacity, blend, on any shape
+- Fill the frame: reframe crops per shot, blur, color or image behind a fitted clip
+- frameIndex picks the last frame shown at or before the source time sourceTime gives
+- Decoded frames sit in the image cache by frame key; exports, screenshots and filmstrips decode only what each frame draws
+- renderFrames names the clips drawn from a shared copy; a clip the device lacks is listed missing
+
+#### The Media tab replaces Images
+
+- Media tab for everyone: Your files, Free to use (Openverse) and Stock (Unsplash) in one grouped menu
+- One search box and a type filter: All, Images, Sounds, Video (Video from your own folders)
+- Public domain images with badge, credit and a details popover; sounds as rows with play, waveform and length
+- Slow and timed-out states for Openverse, nothing found, and Unsplash needing a key
+- Drag onto a shape, the canvas or the timeline; double-click adds in view or at the playhead
+- Replace on an image fill and a music clip, keeping crop and timing; a Loop toggle for shorter sounds
+- Credits from Openverse and Unsplash stay on the fill or clip
+
+#### Openverse browses and draws waveforms; folders hold sounds and videos
+
+- An Openverse search with no words lists popular public domain results
+- Results keep their file and size for previews, and peaks() reads a sound's waveform
+- Folder libraries list and search sounds and videos when asked, and give a video's file path
+- Image fetches no longer get a 406 from Openverse previews
+
+#### A music clip can loop its sound to fill the clip
+
+- AudioClip.loop repeats the sound from its trim until the clip's length (or the composition's end)
+- Without it a clip ends with its sound, so a shorter replacement ends the clip early
+- Playback, MP4 export and the motion guide all follow the loop
+
+#### One Timeline with the Main track, overlay lanes and rows that open in place
+
+- The motion dock is Timeline | Transcript; Scenes, Layers and the Ripple toggle are gone
+- Main track: always ripples (trim, reorder, insert, delete), Alt on a scene's edge runs it into the next, + adds a scene
+- The composition grows when the Main track runs past its end; it never shortens by itself
+- Overlays sit in lanes packed by stacking order, pinned to the clip under their start, with a pin dot and line
+- Dragging an overlay re-pins it to the clip it lands on, or moves it to another lane or New overlay lane
+- Scenes and overlays open in place to their layers, animation chips (In, Out, Loop) and keyframe rows, several at once
+- Animated only filter; an open scene shows 8 rows then scrolls inside itself ("N more layers · scroll")
+- A layer picked on the canvas opens its rows and scrolls to them; double-clicking a scene zooms to it
+- ⌘B splits the selected scene or overlay (or the scene under the playhead); a clip's footage starts at the cut
+- Scene menu: Duplicate ⌘D, Split at playhead ⌘B, Add scene after, Transition in…, Ask about this scene ⌘J, Delete
+- ⌘D and Delete on a selected scene ripple while the dock is open
+- The Timing panel shows "Attached to <clip> · Starts 1.0s into it; moves with it" with Detach
+- dropOnTimeline and the application/x-autopen-media drag type put sounds, clips and images on a lane
+- Pure helpers in sequence.ts: insertScene, deleteScene, clipAt, pinTo, detachPin, packLanes, stackIndexFor, splitLayer, pinsAfterSplit
+- Spans resolve pins and are cached per edit; playing redraws only the playhead and time, not the lanes
+- verify-timeline.ts and perf-timeline.ts; verify-motion, verify-video-layers and verify-voiceover-ui follow the new dock
+
+#### Agents ask to read a folder, and Settings › Claude lists the folders
+
+- When ImportMedia can't read a folder, the agent asks in the pane: Allow this folder, Only for this request, or Don't allow
+- The card shows the folder, its drive and what's in it; your answer applies before the agent tries again
+- Settings › Claude lists folders agents can read, every board's, with who allowed each and when, a board filter and Remove
+- Agents never ask for a whole disk or home folder
+
+#### Connect your own Openverse keys in Integrations
+
+- An Openverse card in Integrations: works without a key, fewer results until connected
+- Connect registers an app with Openverse from your email, then flips to Connected on its own once the emailed link is clicked
+- Resend and Cancel while waiting; Replace and Disconnect once connected; paste keys you already have
+- Keys are sealed in the keychain and every Openverse search uses them, agents' too; no keys are built into Autopen
+
+#### Music on the timeline, and markers you can delete
+
+- Add music drops a track at the playhead on its own audio lane; drag clips to move them, and Backspace removes one
+- The music panel has a Remove button
+- A selected marker can be deleted; layers and clips that started at it keep their moment
+
+#### Emoji draw in color
+
+- Text with emoji draws them with Noto Color Emoji on the canvas, in exports and on the phone and web viewers
+- The emoji font loads only once some text on the board has emoji
+
+#### Shared copies of videos made in a hidden window
+
+- ImportMedia's videos become 1080p H.264 with AAC: decoded, turned upright and scaled, hardware encoded, muxed to disk as they go
+- H.264 that already fits is copied without decoding; PCM and Opus sound become AAC; the recording date carries over
+- Stills for ExtractFrames decode each keyframe stretch once, from the original when this desktop has it
+- Each board keeps its copies in a media folder, fetches the clips it uses in the background, and takes another board's copy by hard link
+- Per-board allowed folders, with IPC and window.autopen calls for Settings › Claude to list, add and remove them
+- Verify-media checks it all in the app against ffmpeg's view of the originals
+
+#### Footage syncs peer to peer in windows straight to disk
+
+- MediaExchange asks for 4 MB windows, two in flight, answered in 192 KB chunks read from disk
+- The whole file is checked against its hash; a bad one is dropped and asked for again
+- One holder answers each window on a relay room; viewers ask but never answer
+- The relay passes media frames along and keeps none
+
+#### ImportMedia, VideoInfo and ExtractFrames for agents
+
+- ImportMedia brings images, sound and video from allowed folders by path, glob or list, one entry per file in name order
+- Images and sound land as assets at once; videos and images maxSide shrinks get pending urls that become their copies
+- A folder outside the allowed ones is refused by its spelling alone and names the folder to allow in Settings › Claude; inside, every failure reads the same
+- Allowed folders can differ per board; a local path or http(s) link in a video fill becomes its shared copy
+- VideoInfo reads a path, a pending import or a copy on this device; ExtractFrames queues stills
+- MediaStore, the originals index and MediaHost for hosts that can decode
+
+#### Video sniffing and an MP4/MOV reader
+
+- sniffVideoType tells MP4, MOV and WebM from images, songs and HEIF stills
+- packages/doc/mp4.ts reads the movie box before or after the media: tracks, WebCodecs codec strings and decoder descriptions, sample tables, edit list start, rotation, recording date
+- VideoInfo shape and the shared copy's size (long side at most 1920, never larger, even)
+- Video fills' urls count as asset urls; videoUrlsOf lists them so footage can sync apart
+- Tiny fixture clips: H.264 with AAC, HEVC turned in a MOV, movie box at the end, WebM, M4A
+
+#### Video size, frame rate, codec and quality
+
+- Size: Frame size, 720p, 1080p, 1440p or 4K, drawn at scale so a 1080p composition is sharp at 4K
+- Frame rate: 24, 25, 30, 50 or 60
+- Codec: H.264, or HEVC where this computer encodes it, at the right level (4K60 H.264 is 5.2)
+- Quality: Draft, Good or Best instead of a bitrate
+- MP4s are written to disk as they encode, with their index up front; cancel leaves nothing
+- The Export dialog remembers your last video settings; quick export and deck export use them
+- Agents: Export(comp, 'mp4', path, { size, fps, codec, quality, captions, voice, music }), checked with clear errors
+
+#### Animation cards and a key toggle on every animatable field
+
+- The right panel's Motion section lists one card per animation: grip to reorder, name, In/Out/Loop, length, eye to turn it off, delete on hover
+- A card opens to At, Length, Distance, Direction (wipe reads From Left/Right/Top/Bottom), Ease with spring Bounce and Stiffness
+- Type cards pick by letter or word; Count cards edit From, To, Decimals, Before/After text and the thousands separator
+- The + menu adds animations grouped In, Out (with Untype and Count down) and Loop, plus Ask an agent
+- A group's card staggers its children; a child shows it read only with a link back to the group
+- X, Y, Rotation, a new Scale field, Opacity, Corner radius, Fill, Stroke, Shadow and Blur each get a key toggle
+- Editing an animated property keys it at the playhead; Record keys is gone from the timeline toolbar
+
+#### clips, speed curves, overlay pins and animation switches in the data model
+
+- A video fill puts footage on any shape, with in, speed or a speed curve, volume, loop and Fill the frame
+- Speed curve presets (Montage, Hero, Bullet, Flash) keep the whole clip and change its length; sound mutes above 2x
+- A freeze frame is the same clip held at one moment, so it keeps its look and exports exactly
+- Titles and stickers pin to the clip under them and follow it when the Main track moves, on the canvas and in HTML export
+- Animations can be turned off without deleting them, and Count starts from any number and counts down on the way out
+- Agents get clear warnings for a bad clip, a pin that can't play, and a freeze frame with no length
+
+#### Agents find and place public domain images and sounds
+
+- find_media searches Openverse for CC0 and public domain images and sounds from sources that review licences
+- Agents place openverse: urls in image fills and audio clips; each is checked again and copied onto the board with its credit
+- Stock photos without an Unsplash key come from public domain Openverse photos
+- Audio clips from a web address now land on the board instead of staying pending
+
+#### Animations stay editable after they are applied
+
+- Layers keep named animations (rise, pop, wipe, pulse and more) with their timing, distance and direction, worked out when drawn instead of baked into keyframes
+- Entrances, exits and loops combine on one layer; a stagger on a group plays on each child in turn
+- The canvas, video export and HTML export all play them
+- Agents write animations by name, and get a clear warning for one that can't play
+
+#### New Features
+
+- Admins see everyone who signed in
+
+#### A call that only reads no longer copies the whole board
+
+- A call reads the live board and makes its staging replica only at its first write
+- Get visitors, screenshots, Print, Pages and exports on a new session copy nothing
+- On a 97k-node synthetic board, a read-only call in a new session went from 1.2 s and 410 MB of heap to 0.3 s and under 1 MB
+
+#### Copied text pastes into other apps, pictures paste into the selected box
+
+- Copying a text layer copies its words too, linked words followed by where they go
+- Pasting a picture with an image box selected fills the box at its size, keeping its crop
+
+#### A clip that arrives late plays without reopening the board
+
+- The canvas now decodes a clip that lands after its composition was drawn, peer to peer or from the relay
+- verify-footage.ts: two desktops and a local relay with local R2, end to end
+
+#### Look row lays out, Replace clip for everyone
+
+- Look name and Amount slider sit on one line instead of stacking
+- Replace clip… shows whenever you have a folder library
+
+#### Text keeps its exact look while you edit it
+
+- The canvas draws the words as you type; the editor shows only the caret and highlight
+- Clicking into a text no longer changes its weight or shifts it
+- Typing past the panel edge no longer scrolls the canvas aside
+- Japanese and Chinese composition still shows while composing
+
+#### Editing breaks lines exactly where the canvas does
+
+- Clicking into a text no longer moves a word to another line
+- The editor loads the same font file the canvas draws with, uploaded fonts too
+- The editor no longer picks up the interface's font features
+
+#### Only known decoration styles reach exported CSS
+
+- A made-up decorationStyle on a board can no longer inject CSS or markup into HTML and SVG exports
+
+#### A clip after a transition opens again
+
+- A transition's drag edge covered the next clip's open triangle and name; it now sits over the filmstrip only
+
+#### The app's stylesheet builds again
+
+- A pressed-toggle selector had landed inside the bound-field rule, which broke the CSS build; it's back with the other pressed toggles
+
+#### Typography card back to two sentences
+
+- Drops the note about the dimmed Italic button
+
+#### Follow pages, steady text editing, real font faces
+
+- Following someone takes you to the page they are on
+- Editing text no longer opens an empty, collapsed box
+- Black and other heavy weights draw the font's real face
+- Font style picker lists every face the font has, italics included
+- Italic toggle next to Underline and Strikethrough
+- Text toggles show when they are on
+- Agents lay out posters, posts, slides and ads freely, auto layout for UI
+
+#### The clip panel's length note sits inline again
+
+- "later clips move" after a speed change no longer shows as an empty box on its own line
+
+#### A video dropped on the board plays
+
+- Dropped anywhere but inside a video, a clip becomes a video of its own, the clip's size and frame rate, so it shows its frame, plays and exports instead of sitting there blank
+- Several files dropped together play one after another in that video
+
+#### The Ask box is styled again
+
+- Its text box had lost its look when the agent's message box moved to a formatted editor; it sits in the frame like the agent's again
+
+#### Extras verified end to end in the app
+
+- Zoom blur and glitch sample the scene where it sits, not at the board origin
+- MP4 captions run the caption kernel, so highlight, pop and typewriter burn in
+- Freeze frame settles the next transition against the rest of the clip
+- Cut to the beat leaves room for both transitions in every scene
+- verify-extras.ts passes: reverse exact, looks, freeze, transitions, captions, screenshot equals MP4
+
+#### Board compaction can no longer crash the app
+
+- Compaction collects in its own utility process, not a worker thread: the worker shared main's 4 GB V8 heap and aborted the whole app with "young object promotion failed" on big boards
+- If the compaction process dies, the board is saved as it is and a line goes to main.log
+- Closing a board with nothing new since its snapshot skips compaction
+- scripts/verify-compaction.ts compacts a board while main's heap is nearly full
+
+#### The transition picker closes when you click away
+
+- A click outside the picker or Escape closes it, like the timeline's menus; clicking another cut still switches to it
+
+#### The transition picker opens at the cut you clicked
+
+- It sat above the whole dock, far from the Main track now that the track is at the bottom; it now opens at its cut, above or below as the window has room
+
+#### Exports check where a folder really is
+
+- /private/tmp is accepted like /tmp, since it's the same folder
+- A symlink inside an allowed folder can no longer lead an export outside it
+
+#### The play bar runs the whole video when the Main track is shorter
+
+- Time no scene covers, such as overlays playing on after the last scene, shows as a plain stretch of the bar you can scrub, instead of empty space
+
+#### Add voiceover keeps its text white on hover
+
+- The lane's border and tint still turn the voice color; the label stays readable like Add music's
+
+#### A scene's or overlay's menu opens where you right-click
+
+- At an interface size above 100% the menu opened down and to the right of the pointer
+
+#### The environment note stays with the Claude settings it explains
+
+- On Settings › Claude, "Some of these are set by environment variables" sits above Folders agents can read instead of under it
+
+#### Every video setting fits its column
+
+- The Captions choices no longer run off the edge of the Export dialog; the segment labels shrink to fit
+
+#### A frame's stagger can be edited in the panel
+
+- A frame's animation card has a Stagger field, so a frame an agent staggered can be retimed
+- On a frame it plays on the frame itself until a stagger above 0 is set; a group still staggers by default
+
+#### Folders are added and removed in the Images tab
+
+- Each folder in the Images tab's source menu has an × to remove it, and Delete removes the highlighted one
+- Settings, Integrations lists photo servers only
+
+#### Conversation files open from the agent's menu
+
+- The paperclip button in the agent pane's header is gone; Files… is in the menu on the agent's name
+
+#### Plan names follow the Max and Ultra rename
+
+- 5x Max shows as Max and 20x Max as Ultra
+
+#### Video frames always go through the canvas
+
+- Raw-byte VideoFrames used 230 MB more at 4K for the same speed
+- The dialog keeps HEVC picked while it checks this computer can encode it
+
+#### A board main lets go of is freed, instead of a whole copy kept per reopen
+
+- Closing a board destroys the awareness it made, whose renewal timer kept the doc alive
+- Closing a board drops main's layouts of it, held by an export or a share link's copy
+- A background agent working on a board no window shows has main reopen it when calls are over 6 s apart: on the 97k-node Autopen board main kept 340 MB per call (379 MB to 3.1 GB in 8 calls) and ran out of heap; now it holds 38 MB between calls
+
+#### A slow Openverse gives up cleanly instead of hanging
+
+- A search gives up after 20 s with a clear error to try again or use another source
+- A gateway error is tried once more while time is left
+- Recent searches come back from memory, and the same search running twice is asked once
+
+#### Staging replicas no longer pile up until the agent process runs out of memory
+
+- A session lets go of its staging replicas when it ends, and a failed call's at once
+- The layout cache drops a replica's or mirror's layout when it goes, instead of holding the last 8 whole boards
+- On the 97k-node Autopen board, 24 per-call MCP sessions held the agent heap at 339 MB, where it climbed 310 MB per edit to an OOM
+
+#### A composition's end shows its last frame
+
+- A layer that runs to the end of a composition still shows when the playhead or a filmstrip sits at the end
+
+#### Agents can export to temp folders
+
+- Export writes under the temp folder and /tmp as well as home, so an agent can check its own output
+
+#### Long slideshows export sharp
+
+- Export, screenshots and filmstrips decode only the images each frame draws, so hundreds of photos stay inside the image budget
+- Export says how many images it drew below full resolution when one frame alone runs the budget out
+
+#### Unknown fill types are refused
+
+- Insert and Update refuse a fill or stroke type nothing draws, like video, and list the ones that work
+
+#### Agents stop asking which style on a new board
+
+- A board with no style gets plain, neutral designs without a question
+- The style card shows only when someone asks for help choosing
+
 ## 0.2.38 (2026-11-03)
 
 #### Figma stroke settings, layout guides, new effects and panel polish
