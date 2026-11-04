@@ -2,6 +2,23 @@
 
 What changed in each version of Autopen.
 
+## 0.2.41 (2026-11-04)
+
+#### Warn about an @input outside the script header
+
+- An @input line written outside the /** */ header gets a warning that says to move it, even when the script then fails
+
+#### Transitions no longer leave empty frames at the end
+
+- A film that ended with its last scene gets shorter by each transition's overlap
+- One that runs past its last scene (music, a held end) keeps its length, and agents get a warning
+
+#### Connectors draw above zones and wait for fonts
+
+- Connectors draw above the zone and lane frames behind the nodes, so a line crossing a zone it doesn't belong to no longer disappears under its fill
+- Connect drawn while fonts are loading redraws itself once they land, in the same call, instead of asking for a second one
+- Get reads a script's json input back as the list or object it was given
+
 ## 0.2.40 (2026-11-04)
 
 #### View links play motion and show just the board name
